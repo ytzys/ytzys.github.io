@@ -277,6 +277,292 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/quick-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ytzys">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ytzys's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/21/quick-sort/" itemprop="url">
+                  quick sort
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-21 14:12:14 / Modified: 14:13:38" itemprop="dateCreated datePublished" datetime="2018-12-21T14:12:14+08:00">2018-12-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="quick-sort"><a href="#quick-sort" class="headerlink" title="quick sort"></a>quick sort</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> startIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (startIndex &gt;= endIndex) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> pivot = array[startIndex];</span><br><span class="line">    <span class="keyword">int</span> i = startIndex + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> j = endIndex;</span><br><span class="line">    <span class="keyword">boolean</span> ltr = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ltr) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[i] &lt;= pivot) &#123;</span><br><span class="line">                array[i - <span class="number">1</span>] = array[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = array[j];</span><br><span class="line">                array[j] = array[i];</span><br><span class="line">                array[i] = tmp;</span><br><span class="line">                ltr = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[j] &gt;= pivot) &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = array[i];</span><br><span class="line">                array[i] = array[j];</span><br><span class="line">                array[j] = tmp;</span><br><span class="line">                ltr = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (array[i] &gt;= pivot) &#123;</span><br><span class="line">        array[i - <span class="number">1</span>] = pivot;</span><br><span class="line">        quickSort(array, startIndex, i - <span class="number">2</span>);</span><br><span class="line">        quickSort(array, i, endIndex);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        array[i - <span class="number">1</span>] = array[i];</span><br><span class="line">        array[i] = pivot;</span><br><span class="line">        quickSort(array, startIndex, i - <span class="number">1</span>);</span><br><span class="line">        quickSort(array, i + <span class="number">1</span>, endIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/forwarding-dispatch-flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ytzys">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ytzys's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/08/forwarding-dispatch-flow/" itemprop="url">
+                  forwarding-dispatch-flow
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-08 10:32:26 / Modified: 20:38:32" itemprop="dateCreated datePublished" datetime="2018-08-08T10:32:26+08:00">2018-08-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="物流系统派车单查询流程"><a href="#物流系统派车单查询流程" class="headerlink" title="物流系统派车单查询流程"></a>物流系统派车单查询流程</h1><h2 id="登录流程"><a href="#登录流程" class="headerlink" title="登录流程"></a>登录流程</h2><ol>
+<li>mainPage 的地址的是 <code>http://test.sditds.gov.cn:81/logistics/mainPage</code></li>
+<li>直接请求的话会跳转到登录界面 <code>https://test.sditds.gov.cn:5565/cas/login?service=http://test.sditds.gov.cn:81/logistics/security/login</code></li>
+<li>访问 <code>http://test.sditds.gov.cn:81/logistics/security/login</code> 也会跳转到上面的地址</li>
+</ol>
+<p>对于本地工程来说，访问 <code>http://localhost:8080/logistics/mainPage</code><br>会跳转到 <code>https://local.sditds.gov.cn:8443/cas/login?service=http://local.sditds.gov.cn/logistics/security/login</code></p>
+<h2 id="派车单查询请求接口"><a href="#派车单查询请求接口" class="headerlink" title="派车单查询请求接口"></a>派车单查询请求接口</h2><p><code>http://test.sditds.gov.cn:81/logistics/forwardingOrder/dispatch/listData?pageNum=1&amp;pageSize=10&amp;billNo=&amp;forwarderName=&amp;consigneeCName=&amp;flowStatus=&amp;delivTimeStart=&amp;delivTimeEnd=&amp;oriBack=&amp;_=1533695610680</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/first-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -455,7 +741,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
